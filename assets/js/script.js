@@ -133,17 +133,35 @@ document.querySelector(".react").addEventListener("mouseover", function () {
     "React é uma biblioteca JavaScript de código aberto com foco em criar interfaces de usuário em páginas web. <br><br> 8 meses de experiência";
 });
 
+document.querySelector(".ts").addEventListener("mouseover", function () {
+  texto1.innerHTML =
+    "Typescript atualizar descrição. <br><br> 4 meses de experiência";
+});
+
 document.querySelector(".next").addEventListener("mouseover", function () {
   texto1.innerHTML =
     "Next.js é uma estrutura da web que permite funcionalidades como renderização do lado do servidor e geração de sites estáticos para web baseados em React. <br><br> 2 meses de experiência";
 });
 
-document
-  .querySelector(".styled")
-  .addEventListener("mouseover", function mudarTexto8() {
-    texto1.innerHTML =
-      "Styled Components é uma biblioteca que utiliza o conceito de CSS-in-JS, ou seja, que nos permite escrever códigos CSS dentro do Javascript. <br><br> 4 meses de experiência";
-  });
+document.querySelector(".styled").addEventListener("mouseover", function () {
+  texto1.innerHTML =
+    "Styled Components é uma biblioteca que utiliza o conceito de CSS-in-JS, ou seja, que nos permite escrever códigos CSS dentro do Javascript. <br><br> 4 meses de experiência";
+});
+
+document.querySelector(".postgre").addEventListener("mouseover", function () {
+  texto1.innerHTML =
+    "PostgreSQL atualizar descrição. <br><br> 4 meses de experiência";
+});
+
+document.querySelector(".spring").addEventListener("mouseover", function () {
+  texto1.innerHTML =
+    "Springboot atualizar descrição. <br><br> 4 meses de experiência";
+});
+
+document.querySelector(".java").addEventListener("mouseover", function () {
+  texto1.innerHTML =
+    "Java atualizar descrição. <br><br> 4 meses de experiência";
+});
 
 var sairCaixa = document.getElementsByClassName("sairCaixa");
 
