@@ -3,7 +3,7 @@
 </h1>
 
 <h4 align="center">
-  Portfólio criado com o intuito de mostrar meus projetos ao decorrer da minha carreira.
+  Portfólio criado com o intuito de mostrar meus projetos ao decorrer dos meus estudos e carreira.
 </h4>
 
 ![Resultado final do projeto](assets/image/preview.png)
