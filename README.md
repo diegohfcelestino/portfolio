@@ -34,7 +34,7 @@ Para o desenvolvimento deste site utilizei as seguintes tecnologias:
 
 ---
 
-## 🦄 Autor<br>
+## Autor<br>
 
 <table>
   <tr>

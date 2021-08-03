@@ -12,8 +12,7 @@ class MobileNavbar {
     this.navLinks.forEach((link, index) => {
       link.style.animation
         ? (link.style.animation = "")
-        : (link.style.animation = `navLinkFade 0.5s ease forwards ${
-            index / 7 + 0.3
+        : (link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3
           }s`);
     });
   }
@@ -135,12 +134,12 @@ document.querySelector(".react").addEventListener("mouseover", function () {
 
 document.querySelector(".ts").addEventListener("mouseover", function () {
   texto1.innerHTML =
-    "Typescript atualizar descrição. <br><br> 4 meses de experiência";
+    "TypeScript, um superset da linguagem JavaScript criado pela Microsoft para permitir a escrita de scripts com a utilização de tipagem estática, orientação a objetos, e facilitando a escrita de código com uma sintaxe de fácil compreensão. <br><br> 4 meses de experiência";
 });
 
 document.querySelector(".next").addEventListener("mouseover", function () {
   texto1.innerHTML =
-    "Next.js é uma estrutura da web que permite funcionalidades como renderização do lado do servidor e geração de sites estáticos para web baseados em React. <br><br> 2 meses de experiência";
+    "Next.js é uma estrutura da web que permite funcionalidades como renderização do lado do servidor e geração de sites estáticos para web baseados em React. <br><br> 3 meses de experiência";
 });
 
 document.querySelector(".styled").addEventListener("mouseover", function () {
@@ -150,17 +149,27 @@ document.querySelector(".styled").addEventListener("mouseover", function () {
 
 document.querySelector(".postgre").addEventListener("mouseover", function () {
   texto1.innerHTML =
-    "PostgreSQL atualizar descrição. <br><br> 4 meses de experiência";
-});
-
-document.querySelector(".spring").addEventListener("mouseover", function () {
-  texto1.innerHTML =
-    "Springboot atualizar descrição. <br><br> 4 meses de experiência";
+    "PostgreSQL é um sistema gerenciador de banco de dados objeto relacional (SGBD), desenvolvido como projeto de código aberto. <br><br> 4 meses de experiência";
 });
 
 document.querySelector(".java").addEventListener("mouseover", function () {
   texto1.innerHTML =
-    "Java atualizar descrição. <br><br> 4 meses de experiência";
+    "Java é uma linguagem de programação e plataforma computacional lançada pela primeira vez pela Sun Microsystems em 1995. Existem muitas aplicações e sites que não funcionarão, a menos que você tenha o Java instalado, e mais desses são criados todos os dias. O Java é rápido, seguro e confiável. <br><br> 4 meses de experiência";
+});
+
+document.querySelector(".spring").addEventListener("mouseover", function () {
+  texto1.innerHTML =
+    "O Spring Boot é um projeto da Spring que veio para facilitar o processo de configuração e publicação de nossas aplicações Java. A intenção é ter o seu projeto rodando o mais rápido possível e sem complicação.. <br><br> 4 meses de experiência";
+});
+
+document.querySelector(".node").addEventListener("mouseover", function () {
+  texto1.innerHTML =
+    "O Node. js pode ser definido como um ambiente de execução Javascript server-side. Isso significa que com o Node. js é possível criar aplicações Javascript para rodar como uma aplicação standalone em uma máquina, não dependendo de um browser para a execução, como estamos acostumados. <br><br> 6 meses de experiência";
+});
+
+document.querySelector(".ejs").addEventListener("mouseover", function () {
+  texto1.innerHTML =
+    "O EJS é uma engine de visualização, com ele conseguimos de uma maneira fácil e simples transportar dados do back-end para o front-end, basicamente conseguimos utilizar códigos em javascript no html de nossas páginas. <br><br> 4 meses de experiência";
 });
 
 var sairCaixa = document.getElementsByClassName("sairCaixa");
