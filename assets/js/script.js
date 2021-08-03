@@ -34,6 +34,7 @@ class MobileNavbar {
     return this;
   }
 }
+
 const mobileNavbar = new MobileNavbar(
   ".mobile-menu",
   ".nav-list",
@@ -129,7 +130,12 @@ document.querySelector(".sass").addEventListener("mouseover", function () {
 
 document.querySelector(".react").addEventListener("mouseover", function () {
   texto1.innerHTML =
-    "React é uma biblioteca JavaScript de código aberto com foco em criar interfaces de usuário em páginas web. <br><br> 8 meses de experiência";
+    "O React é uma biblioteca JavaScript declarativa, eficiente e flexível para criar interfaces com o usuário. Ele permite compor UIs complexas a partir de pequenos e isolados códigos chamados “componentes”. <br><br> 8 meses de experiência";
+});
+
+document.querySelector(".angular").addEventListener("mouseover", function () {
+  texto1.innerHTML =
+    "AngularJS é um framework JavaScript revolucionário, mantido por um time de engenheiros Google. Ele simplifica o desenvolvimento de aplicações web robustas e de sucesso. Por este motivo, tem-se mostrado em crescente ascensão, sendo considerado a tecnologia do momento para desenvolvimento de aplicações web. <br><br> 3 meses de experiência";
 });
 
 document.querySelector(".ts").addEventListener("mouseover", function () {
@@ -139,7 +145,7 @@ document.querySelector(".ts").addEventListener("mouseover", function () {
 
 document.querySelector(".next").addEventListener("mouseover", function () {
   texto1.innerHTML =
-    "Next.js é uma estrutura da web que permite funcionalidades como renderização do lado do servidor e geração de sites estáticos para web baseados em React. <br><br> 3 meses de experiência";
+    "Next.js é um framework React com foco em produção e eficiência criado e mantido pela equipe da Vercel, o Nextjs busca reunir diversas funcionalidades como renderização hibrida e estática de conteúdo, suporte a TypeScript, pre-fetching, sistema de rotas, pacotes de funcionalidades e diversos plugins e exemplos para acelerar seu desenvolvimento fornecendo uma estrutura completa para você iniciar seu projeto. <br><br> 3 meses de experiência";
 });
 
 document.querySelector(".styled").addEventListener("mouseover", function () {
