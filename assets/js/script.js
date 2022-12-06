@@ -105,57 +105,57 @@ var texto1 = document.querySelector(".mudarTextoDescricao");
 
 document.querySelector(".html").addEventListener("mouseover", function () {
   texto1.innerHTML =
-    "HTML é uma linguagem baseada em marcação, onde marcamos os elementos para definir quais informações a página vai exibir. <br><br> 1 anos de experiência";
+    "HTML é uma linguagem baseada em marcação, onde marcamos os elementos para definir quais informações a página vai exibir. <br><br> 3 anos de experiência";
 });
 
 document.querySelector(".css").addEventListener("mouseover", function () {
   texto1.innerHTML =
-    "CSS é uma linguagem de folha de estilo composta por “camadas”, criado com o propósito de estilizar as páginas HTML. <br><br> 1 anos de experiência";
+    "CSS é uma linguagem de folha de estilo composta por “camadas”, criado com o propósito de estilizar as páginas HTML. <br><br> 3 anos de experiência";
 });
 
 document.querySelector(".js").addEventListener("mouseover", function () {
   texto1.innerHTML =
-    "JavaScript é uma linguagem de programação interpretada estruturada, de script em alto nível com tipagem dinâmica fraca e multiparadigma. <br><br> 8 meses de experiência";
+    "JavaScript é uma linguagem de programação interpretada estruturada, de script em alto nível com tipagem dinâmica fraca e multiparadigma. <br><br> 2 anos de experiência";
 });
 
 document.querySelector(".bootstrap").addEventListener("mouseover", function () {
   texto1.innerHTML =
-    "Bootstrap é um framework para desenvolvimento de componentes de interface front-end para sites e aplicações web usando HTML, CSS e JavaScript. <br><br> 1 ano de experiência";
+    "Bootstrap é um framework para desenvolvimento de componentes de interface front-end para sites e aplicações web usando HTML, CSS e JavaScript. <br><br> 3 ano de experiência";
 });
 
 document.querySelector(".sass").addEventListener("mouseover", function () {
   texto1.innerHTML =
-    "Sass (o pré-processador) é uma linguagem de folhas de estilo. É uma simples linguagem de script usada em arquivos Sass. <br><br> 4 meses de experiência";
+    "Sass (o pré-processador) é uma linguagem de folhas de estilo. É uma simples linguagem de script usada em arquivos Sass. <br><br> 1 ano de experiência";
 });
 
 document.querySelector(".react").addEventListener("mouseover", function () {
   texto1.innerHTML =
-    "O React é uma biblioteca JavaScript declarativa, eficiente e flexível para criar interfaces com o usuário. Ele permite compor UIs complexas a partir de pequenos e isolados códigos chamados “componentes”. <br><br> 8 meses de experiência";
+    "O React é uma biblioteca JavaScript declarativa, eficiente e flexível para criar interfaces com o usuário. Ele permite compor UIs complexas a partir de pequenos e isolados códigos chamados “componentes”. <br><br> 2 anos de experiência";
 });
 
-document.querySelector(".angular").addEventListener("mouseover", function () {
+document.querySelector(".react-native").addEventListener("mouseover", function () {
   texto1.innerHTML =
-    "AngularJS é um framework JavaScript revolucionário, mantido por um time de engenheiros Google. Ele simplifica o desenvolvimento de aplicações web robustas e de sucesso. Por este motivo, tem-se mostrado em crescente ascensão, sendo considerado a tecnologia do momento para desenvolvimento de aplicações web. <br><br> 3 meses de experiência";
+    "O React-native é um framework JavaScript revolucionário, mantido por um time de engenheiros do Facebook. Ele simplifica o desenvolvimento de aplicações mobiles robustas e de sucesso. Por este motivo, tem-se mostrado em crescente ascensão, sendo considerado a tecnologia do momento para desenvolvimento de aplicações mobile. <br><br> 1 ano de experiência";
 });
 
 document.querySelector(".ts").addEventListener("mouseover", function () {
   texto1.innerHTML =
-    "TypeScript, um superset da linguagem JavaScript criado pela Microsoft para permitir a escrita de scripts com a utilização de tipagem estática, orientação a objetos, e facilitando a escrita de código com uma sintaxe de fácil compreensão. <br><br> 4 meses de experiência";
+    "TypeScript, um superset da linguagem JavaScript criado pela Microsoft para permitir a escrita de scripts com a utilização de tipagem estática, orientação a objetos, e facilitando a escrita de código com uma sintaxe de fácil compreensão. <br><br> 6 meses de experiência";
 });
 
 document.querySelector(".next").addEventListener("mouseover", function () {
   texto1.innerHTML =
-    "Next.js é um framework React com foco em produção e eficiência criado e mantido pela equipe da Vercel, o Nextjs busca reunir diversas funcionalidades como renderização hibrida e estática de conteúdo, suporte a TypeScript, pre-fetching, sistema de rotas, pacotes de funcionalidades e diversos plugins e exemplos para acelerar seu desenvolvimento fornecendo uma estrutura completa para você iniciar seu projeto. <br><br> 3 meses de experiência";
+    "Next.js é um framework React com foco em produção e eficiência criado e mantido pela equipe da Vercel, o Nextjs busca reunir diversas funcionalidades como renderização hibrida e estática de conteúdo, suporte a TypeScript, pre-fetching, sistema de rotas, pacotes de funcionalidades e diversos plugins e exemplos para acelerar seu desenvolvimento fornecendo uma estrutura completa para você iniciar seu projeto. <br><br> 9 meses de experiência";
 });
 
 document.querySelector(".styled").addEventListener("mouseover", function () {
   texto1.innerHTML =
-    "Styled Components é uma biblioteca que utiliza o conceito de CSS-in-JS, ou seja, que nos permite escrever códigos CSS dentro do Javascript. <br><br> 4 meses de experiência";
+    "Styled Components é uma biblioteca que utiliza o conceito de CSS-in-JS, ou seja, que nos permite escrever códigos CSS dentro do Javascript. <br><br> 2 anos de experiência";
 });
 
 document.querySelector(".postgre").addEventListener("mouseover", function () {
   texto1.innerHTML =
-    "PostgreSQL é um sistema gerenciador de banco de dados objeto relacional (SGBD), desenvolvido como projeto de código aberto. <br><br> 4 meses de experiência";
+    "PostgreSQL é um sistema gerenciador de banco de dados objeto relacional (SGBD), desenvolvido como projeto de código aberto. <br><br> 1 ano de experiência";
 });
 
 document.querySelector(".java").addEventListener("mouseover", function () {
@@ -170,7 +170,7 @@ document.querySelector(".spring").addEventListener("mouseover", function () {
 
 document.querySelector(".node").addEventListener("mouseover", function () {
   texto1.innerHTML =
-    "O Node. js pode ser definido como um ambiente de execução Javascript server-side. Isso significa que com o Node. js é possível criar aplicações Javascript para rodar como uma aplicação standalone em uma máquina, não dependendo de um browser para a execução, como estamos acostumados. <br><br> 6 meses de experiência";
+    "O Node. js pode ser definido como um ambiente de execução Javascript server-side. Isso significa que com o Node. js é possível criar aplicações Javascript para rodar como uma aplicação standalone em uma máquina, não dependendo de um browser para a execução, como estamos acostumados. <br><br> 1 ano de experiência";
 });
 
 document.querySelector(".ejs").addEventListener("mouseover", function () {
