@@ -1,515 +1,895 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="author" content="Diego Henrique Ferreira" />
-  <meta name="description"
-    content="Desenvolvedor Front-End, com um ano atuando como aluno e desenvolvimento de projetos pessoais." />
-  <meta name="keywords"
-    content="sites, web, desenvolvimento, programador, diegohfcelestino, front-end, diego, freelancer, freela, website" />
+  <meta name="description" content="Desenvolvedor Full Stack | React, React Native, Node, TypeScript — Diego Henrique Ferreira" />
+  <meta name="keywords" content="desenvolvedor, fullstack, react, react native, typescript, node, diego, portfolio, mobile, web" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#6610F2" />
-  <meta name="copyright" content="diegohfcelestino 2021" />
-  <meta http-equiv="content-language" content="pt-br" />
+  <meta name="theme-color" content="#0a0a0f" />
   <meta property="og:image" content="https://github.com/diegohfcelestino.png" />
-  <meta property="og:title" content="Portfólio | Diego Henrique Ferreira - Desenvolvedor Front-End" />
-  <meta property="og:description"
-    content="Desenvolvedor Front-End, com um ano atuando como aluno e desenvolvimento de projetos pessoais.." />
-  <title>Portfólio | Diego Henrique Ferreira - Desenvolvedor Front-End</title>
-  <link rel="stylesheet" href="assets/scss/style.css" />
+  <meta property="og:title" content="Diego Henrique Ferreira — Full Stack Developer" />
+  <meta property="og:description" content="Desenvolvedor Full Stack especializado em React, React Native e Node.js." />
+  <title>Diego Henrique Ferreira — Full Stack Developer</title>
+
   <link rel="shortcut icon" href="https://github.com/diegohfcelestino.png" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="https://github.com/diegohfcelestino.png" />
-  <!-- <link rel="canonical" href="https://iuricode.vercel.app/" /> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #0f0f1a;
+      --bg3: #13131f;
+      --surface: rgba(255,255,255,0.04);
+      --surface-hover: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.08);
+      --border-glow: rgba(99,102,241,0.4);
+      --primary: #6366f1;
+      --primary-light: #818cf8;
+      --cyan: #06b6d4;
+      --green: #10b981;
+      --pink: #ec4899;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --radius: 12px;
+      --radius-lg: 20px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+
+    /* ─── CANVAS BG ─── */
+    #particles-canvas {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .5;
+    }
+
+    /* ─── NAV ─── */
+    header {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(10,10,15,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: all .3s;
+    }
+    nav {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+    .logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.2rem; font-weight: 700;
+      background: linear-gradient(135deg, var(--primary), var(--cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .logo span { color: var(--pink); -webkit-text-fill-color: var(--pink); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--text-muted); text-decoration: none; font-size: .9rem;
+      font-weight: 500; transition: color .2s; position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 2px; background: var(--primary); transition: width .3s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      padding: .5rem 1.25rem; border-radius: 8px;
+      background: var(--primary); color: #fff !important; font-weight: 600;
+      transition: opacity .2s, transform .2s;
+    }
+    .nav-cta:hover { opacity: .85; transform: translateY(-1px); }
+    .nav-cta::after { display: none !important; }
+
+    /* hamburger */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 200; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: all .3s; }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh; position: relative; z-index: 1;
+      display: flex; align-items: center;
+      padding: 0 2rem; padding-top: 80px;
+    }
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .4rem 1rem; border-radius: 50px;
+      border: 1px solid var(--border-glow);
+      background: rgba(99,102,241,.1);
+      font-size: .8rem; font-weight: 600; color: var(--primary-light);
+      margin-bottom: 1.5rem;
+      animation: fadeSlideUp .6s ease both;
+    }
+    .hero-badge .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--green); animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,.4)} 50%{box-shadow:0 0 0 6px rgba(16,185,129,0)} }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 900; line-height: 1.05;
+      animation: fadeSlideUp .7s .1s ease both;
+    }
+    .hero-title .name {
+      display: block;
+      background: linear-gradient(135deg, #fff 0%, var(--primary-light) 50%, var(--cyan) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-role {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1rem; color: var(--cyan); margin: 1rem 0;
+      animation: fadeSlideUp .7s .2s ease both;
+    }
+    .hero-role::before { content: '> '; color: var(--primary); }
+    .cursor { animation: blink 1s infinite; }
+    @keyframes blink { 0%,50%{opacity:1} 51%,100%{opacity:0} }
+
+    .hero-desc {
+      color: var(--text-muted); font-size: 1.05rem; max-width: 500px; margin: 1.5rem 0;
+      animation: fadeSlideUp .7s .3s ease both;
+    }
+    .hero-btns {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: fadeSlideUp .7s .4s ease both;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .75rem 1.75rem; border-radius: 10px;
+      font-size: .95rem; font-weight: 600; text-decoration: none;
+      transition: all .25s; cursor: pointer; border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #8b5cf6);
+      color: #fff; box-shadow: 0 0 30px rgba(99,102,241,.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(99,102,241,.55); }
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--primary); background: rgba(99,102,241,.1); transform: translateY(-2px); }
+    .btn-ghost { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+    .btn-ghost:hover { color: var(--text); border-color: rgba(255,255,255,.2); }
+
+    /* Hero visual */
+    .hero-visual {
+      position: relative; animation: fadeIn .9s .3s ease both;
+      display: flex; justify-content: center;
+    }
+    .hero-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 2rem;
+      backdrop-filter: blur(20px); width: 100%; max-width: 420px;
+      box-shadow: 0 25px 60px rgba(0,0,0,.5), 0 0 60px rgba(99,102,241,.1);
+    }
+    .code-header { display: flex; gap: .5rem; margin-bottom: 1.5rem; }
+    .code-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .code-dot:nth-child(1) { background: #ff5f57; }
+    .code-dot:nth-child(2) { background: #ffbd2e; }
+    .code-dot:nth-child(3) { background: #28c840; }
+    .code-body { font-family: 'JetBrains Mono', monospace; font-size: .8rem; line-height: 2; }
+    .c-purple { color: var(--primary-light); }
+    .c-cyan { color: var(--cyan); }
+    .c-green { color: var(--green); }
+    .c-pink { color: var(--pink); }
+    .c-dim { color: var(--text-dim); }
+    .c-white { color: var(--text); }
+
+    .tech-chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
+    .chip {
+      padding: .3rem .75rem; border-radius: 50px; font-size: .75rem; font-weight: 600;
+      border: 1px solid var(--border); background: var(--surface); color: var(--text-muted);
+    }
+
+    /* ─── SECTION BASE ─── */
+    section { position: relative; z-index: 1; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 5rem 2rem; }
+    .section-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .8rem; color: var(--primary); font-weight: 700;
+      letter-spacing: .15em; text-transform: uppercase; margin-bottom: .75rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      font-weight: 800; margin-bottom: 1rem;
+    }
+    .section-title span {
+      background: linear-gradient(135deg, var(--primary-light), var(--cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .section-desc { color: var(--text-muted); max-width: 600px; font-size: 1.05rem; margin-bottom: 3rem; }
+    .divider {
+      width: 60px; height: 3px; border-radius: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--cyan));
+      margin-bottom: 1.5rem;
+    }
+
+    /* ─── ABOUT ─── */
+    #sobre { background: var(--bg2); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .about-img-wrap { position: relative; }
+    .about-img {
+      width: 100%; border-radius: var(--radius-lg); aspect-ratio: 1;
+      max-width: 380px; object-fit: cover;
+      border: 2px solid var(--border);
+      box-shadow: 0 0 60px rgba(99,102,241,.2);
+      transition: box-shadow .3s;
+    }
+    .about-img:hover { box-shadow: 0 0 80px rgba(99,102,241,.4); }
+    .about-glow {
+      position: absolute; inset: -20px; z-index: -1;
+      background: radial-gradient(circle, rgba(99,102,241,.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+    .stat-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem; text-align: center;
+      transition: border-color .3s, transform .3s;
+    }
+    .stat-card:hover { border-color: var(--primary); transform: translateY(-4px); }
+    .stat-number { font-size: 2rem; font-weight: 800; color: var(--primary); display: block; }
+    .stat-label { font-size: .8rem; color: var(--text-muted); }
+    .about-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
+    .tag {
+      padding: .35rem .85rem; border-radius: 50px; font-size: .8rem; font-weight: 600;
+      border: 1px solid var(--border); color: var(--text-muted);
+      transition: all .2s;
+    }
+    .tag:hover { border-color: var(--primary); color: var(--primary-light); background: rgba(99,102,241,.1); }
+
+    /* ─── PROJECTS ─── */
+    #projetos { background: var(--bg); }
+    .projects-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
+
+    .project-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 1.75rem;
+      transition: all .3s; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .project-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--cyan));
+      opacity: 0; transition: opacity .3s;
+    }
+    .project-card:hover { border-color: var(--border-glow); transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,.4), 0 0 30px rgba(99,102,241,.1); }
+    .project-card:hover::before { opacity: 1; }
+
+    .project-card.featured { border-color: rgba(99,102,241,.3); background: rgba(99,102,241,.05); }
+
+    .project-top { display: flex; justify-content: space-between; align-items: flex-start; }
+    .project-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary), #8b5cf6);
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+    }
+    .featured-badge {
+      font-size: .7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .08em; color: var(--primary); background: rgba(99,102,241,.15);
+      padding: .2rem .6rem; border-radius: 50px; border: 1px solid rgba(99,102,241,.3);
+    }
+    .project-links { display: flex; gap: .5rem; }
+    .project-link {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: var(--surface-hover); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted); text-decoration: none; font-size: .85rem;
+      transition: all .2s;
+    }
+    .project-link:hover { color: var(--text); border-color: var(--primary); background: rgba(99,102,241,.15); }
+
+    .project-name { font-size: 1.15rem; font-weight: 700; color: var(--text); }
+    .project-desc { font-size: .9rem; color: var(--text-muted); flex: 1; line-height: 1.6; }
+    .project-tech { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .tech-badge {
+      padding: .25rem .65rem; border-radius: 50px; font-size: .72rem; font-weight: 600;
+      background: rgba(99,102,241,.12); color: var(--primary-light);
+      border: 1px solid rgba(99,102,241,.2);
+    }
+    .tech-badge.cyan { background: rgba(6,182,212,.12); color: var(--cyan); border-color: rgba(6,182,212,.2); }
+    .tech-badge.green { background: rgba(16,185,129,.12); color: var(--green); border-color: rgba(16,185,129,.2); }
+    .tech-badge.pink { background: rgba(236,72,153,.12); color: var(--pink); border-color: rgba(236,72,153,.2); }
+
+    /* ─── SKILLS ─── */
+    #conhecimentos { background: var(--bg2); }
+    .skills-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .skills-group h3 { font-size: 1rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 1.5rem; font-family: 'JetBrains Mono', monospace; }
+    .skills-list { display: flex; flex-direction: column; gap: 1rem; }
+    .skill-item { display: flex; flex-direction: column; gap: .4rem; }
+    .skill-header { display: flex; justify-content: space-between; font-size: .9rem; }
+    .skill-name { font-weight: 600; }
+    .skill-pct { color: var(--text-muted); font-size: .85rem; }
+    .skill-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+    .skill-fill {
+      height: 100%; border-radius: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--cyan));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 1s cubic-bezier(.4,0,.2,1);
+    }
+    .skill-fill.cyan { background: linear-gradient(90deg, var(--cyan), var(--green)); }
+    .skill-fill.green { background: linear-gradient(90deg, var(--green), #34d399); }
+
+    .icon-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .icon-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1rem; text-align: center;
+      transition: all .25s; cursor: default;
+    }
+    .icon-card:hover { border-color: var(--primary); background: rgba(99,102,241,.08); transform: translateY(-3px); }
+    .icon-card .icon { font-size: 1.6rem; display: block; margin-bottom: .4rem; }
+    .icon-card .name { font-size: .7rem; color: var(--text-muted); font-weight: 600; }
+
+    /* ─── CONTACT / FOOTER ─── */
+    #contato { background: var(--bg); }
+    .contact-inner {
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+    }
+    .contact-title { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; margin-bottom: 1rem; }
+    .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 2rem; }
+
+    footer {
+      background: var(--bg2); border-top: 1px solid var(--border);
+      padding: 2rem; text-align: center;
+      font-size: .85rem; color: var(--text-dim);
+    }
+    footer span { color: var(--primary); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+    @keyframes fadeSlideUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; position: fixed; inset: 0 0 0 auto; width: 280px; background: var(--bg2); flex-direction: column; padding: 5rem 2rem; gap: 1.5rem; z-index: 150; border-left: 1px solid var(--border); transition: transform .3s; transform: translateX(100%); }
+      .nav-links.open { display: flex; transform: translateX(0); }
+      .hamburger { display: flex; }
+      .hero-inner { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+      .hero-desc { margin: 1rem auto; }
+      .hero-btns { justify-content: center; }
+      .hero-visual { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-img-wrap { text-align: center; }
+      .about-img { max-width: 260px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .skills-wrapper { grid-template-columns: 1fr; }
+      .icon-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
 </head>
-
 <body>
-  <!--Menu-->
-  <header>
-    <div class="larguraMaxContainer">
-      <nav>
-        <h1 class="logo">Portfólio</h1>
-        <div class="mobile-menu">
-          <div class="line1"></div>
-          <div class="line2"></div>
-          <div class="line3"></div>
-        </div>
-        <ul class="nav-list">
-          <li><a href="#sobre">Sobre mim</a></li>
-          <li><a href="#projetos">Projetos</a></li>
-          <!-- <li><a href="#servicos">Serviços</a></li> -->
-          <li><a href="#conhecimentos">Conhecimentos</a></li>
-        </ul>
-      </nav>
+
+<canvas id="particles-canvas"></canvas>
+
+<!-- ─── HEADER ─── -->
+<header id="header">
+  <nav>
+    <div class="logo">diegohfcelestino<span>.</span>dev</div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#conhecimentos">Skills</a></li>
+      <li><a href="#contato" class="nav-cta">Contato</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
     </div>
-  </header>
+  </nav>
+</header>
 
-  <main>
-    <!--Home-->
-    <section id="apresentacaoPortfolio">
-      <div class="larguraMaxContainer">
-        <article id="apresentacaoTexto">
-          <h2 class="imagem-delay">
-            Olá, eu sou o<br>
-            <span id="nome">Diego Henrique Ferreira</span><br>
-            <span class="maquina-escrever">Desenvolvedor Front-End.</span>
-          </h2>
-          <div>
-            <a href="https://www.linkedin.com/in/diegohfcelestino/" rel="noopener" target="_blank"
-              class="button">
-              <span class="iconify" data-inline="false" data-icon="akar-icons:linkedin-fill"></span>&nbsp;Linkedin
-            </a>
-            <a href="https://github.com/diegohfcelestino" rel="noopener" target="_blank" class="button">
-              <span class="iconify" data-inline="false" data-icon="akar-icons:github-fill"></span>&nbsp;GitHub
-            </a>
-            <a href="curriculo.pdf" rel="noopener" class="button"
-              download="Currículo - Diego Henrique Ferreira Celestino (Front-End)">
-              <span class="iconify" data-inline="false" data-icon="ri:download-cloud-fill"></span>&nbsp;Currículo
-            </a>
-          </div>
-        </article>
-        <article id="apresentacaoFoto">
-          <img src="assets/image/espaco-ux.png" alt="foto de um espaço" id="fundo" class="imagem-espaco-delay">
-          <img src="assets/image/astronauta.png" alt="personagem flutuando" class="object imagem-diego-delay">
-        </article>
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Disponível para novos projetos
       </div>
-    </section>
-
-    <!--Sobre mim-->
-    <section id="sobre">
-      <div class="larguraMaxContainer">
-        <section id="sobreMim">
-          <article id="sobreFoto">
-            <img src="https://github.com/diegohfcelestino.png" alt="ilustração do diego" class="imagem-delay" data-tilt>
-            <div id="figura1" class="icon1 descricao-delay">
-              <span class="iconify" data-inline="false" data-icon="vscode-icons:file-type-html"></span>
-            </div>
-            <div id="figura2" class="icon2 descricao-delay">
-              <span class="iconify" data-inline="false" data-icon="vscode-icons:file-type-js-official"></span>
-            </div>
-            <div id="figura3" class="icon3 descricao-delay">
-              <span class="iconify" data-inline="false" data-icon="vscode-icons:file-type-css"></span>
-            </div>
-            <div id="figura4" class="icon4 descricao-delay">
-              <span class="iconify" data-inline="false" data-icon="vscode-icons:file-type-reactjs"></span>
-            </div>
-            <div id="figura5" class="icon5 descricao-delay">
-              <span class="iconify" data-inline="false" data-icon="vscode-icons:file-type-next"></span>
-            </div>
-            <div id="figura6" class="icon6 descricao-delay">
-              <span class="iconify" data-inline="false" data-icon="logos:bootstrap"></span>
-            </div>
-            <div id="figura7" class="icon7 descricao-delay">
-              <span class="iconify" data-inline="false" data-icon="logos:typescript-icon"></span>
-            </div>
-
-          </article>
-          <article id="sobreTexto">
-            <h2 class="titulo-delay">Sobre mim</h2>
-            <p class="descricao-delay">
-              Meu nome é Diego, tenho 35 anos, moro no Brasil, especificamente em Franca-SP. Atualmente trabalho como
-              desenvolvedor Front End em React e desenvolvimento Mobile com React Native, também faço bootcamps na Rocketseat e 
-              Digital Innovation One e me empenhando para aprimorar, atualizar e colocar em prática o que aprendo, tenho 
-              feito alguns projetos pessoas para didática e também freelancer.
-            </p>
-            <p class="descricao-delay">
-              Iniciei como Desenvolvedor Front End no final de 2020. Desde então venho dedicando para melhorar a cada dia. 
-              Estou no caminho certo pois, vejo os resultados que as horas dedicadas trazem.
-            </p>
-            <!-- <div>
-              <a href="https://www.linkedin.com/in/diegohfcelestino/" rel="noopener" target="_blank"
-                class="button">
-                <span class="iconify" data-inline="false" data-icon="akar-icons:linkedin-fill"></span>&nbsp;Linkedin
-              </a>
-              <a href="curriculo.pdf" rel="noopener" class="button"
-                download="Currículo - Diego Henrique Ferreira Celestino (Front-End Júnior)">
-                <span class="iconify" data-inline="false" data-icon="ri:download-cloud-fill"></span>&nbsp;Currículo
-              </a>
-            </div> -->
-          </article>
-        </section>
+      <h1 class="hero-title">
+        Olá, sou<br>
+        <span class="name">Diego Ferreira</span>
+      </h1>
+      <p class="hero-role"><span id="typed-role"></span><span class="cursor">|</span></p>
+      <p class="hero-desc">
+        Desenvolvedor Full Stack com foco em React, React Native e Node.js. 
+        Apaixonado em transformar ideias em produtos digitais escaláveis e bem projetados.
+      </p>
+      <div class="hero-btns">
+        <a href="#projetos" class="btn btn-primary">
+          ⚡ Ver Projetos
+        </a>
+        <a href="#contato" class="btn btn-outline">
+          💬 Entre em contato
+        </a>
+        <a href="curriculo.pdf" class="btn btn-ghost" download>
+          📄 Currículo
+        </a>
       </div>
-    </section>
-
-    <!--Projetos-->
-    <section id="projetos">
-      <div class="larguraMaxContainer">
-        <h2 class="titulo-delay">Projetos</h2>
-        <article>
-          <div class="cards-interval">
-            <h3>AprendIN</h3>
-            <p>O AprendIN é um projeto em parceria com o <a
-                href="https://www.linkedin.com/in/robsonsantos-nca/" target="_blank">Robson</a> Comercial e MKT,
-              juntos criamos uma socialtech com a missão de incluir Jovens Aprendizes no mercado de trabalho. Esta pagina foi desenvolvida em HTML, CSS e Javascript, com Styled Components e Bootstrap para colocar efeitos</p>
-            <span>
-              <h3>Portal AprendIN Academy</h3>
-              <p>Em continuidade no projeto AprendIN, criamos uma plataforma para acesso, usamos o Moodle Cloud </p>
-              <a href="http://AprendIN.com/" rel="noopener" target="_blank" class="button">
-                <button><span class="iconify" data-inline="false" data-icon="bx:bx-link"></span>&nbsp;Website</button>
-              </a>
-            </span>
-            <span>
-              <a href="https://aprendin.moodlecloud.com/login/index.php" rel="noopener" target="_blank" class="button">
-                <button><span class="iconify" data-inline="false"
-                    data-icon="bx:bx-link"></span></i>&nbsp;Portal</button>
-              </a>
-            </span>
-            <div class="linguagensProjeto">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
-              <span>Styled Components</span>
-              <span>Bootstrap</span>
-              <span>Moodle</span>
-            </div>
-          </div>
-          <div class="cards-interval">
-            <h3>Org Soluções</h3>
-            <p>Projeto desenvolvido para controle e reserva de salas, carros existentes na empresa, também adicionamos as opções de controle de pontos dos funcionários e vídeos de cursos da empresa.<a
-                href="https://www.orgsystem.com.br/" target="_blank"> Orgsystem</a>, este projeto foi desenvolvido
-              voluntariamente juntamente com o <a href="https://github.com/adelmojsantos" target="_blank">Adelmo</a>. O projeto foi desenvolvido em React, trabalhamos com modal (react-modal), com gráficos (ApexChart), fizemos integrações via api no banco de dados da empresa e utilizamos o <a
-              href="https://supabase.com/" target="_blank">Supabase</a> como banco de dados e o <a href="https://app.netlify.com/" target="_blank">Netlify</a> para deploy do projeto.
-            </p>
-            <span>
-              <a href="https://orgsolucoes.netlify.app/" rel="noopener" target="_blank" class="button">
-                <button><span class="iconify" data-inline="false"
-                    data-icon="bx:bx-link"></span></i>&nbsp;Sistema</button>
-              </a>
-
-            </span>
-            <div class="linguagensProjeto">
-              <span>React JS</span>
-              <span>SASS</span>
-              <span>Bootstrap</span>
-              <span>Api Rest</span>
-              <span>Supabase</span>
-              <span>Netlify</span>
-            </div>
-          </div>
-
-          <div class="cards-interval">
-            <h3>Github Explorer</h3>
-            <p>Projeto desenvolvido para pesquisa de usuários e projetos do github, foi feito login pelo Oauth do github, integrando com o <a href="https://supabase.com/" target="_blank">Supabase</a> para salvar informações de usuário e também integrando com o <a href="https://app.netlify.com/" target="_blank">Netlify</a> para deploy do projeto. Todo este projeto teve inicio ao desafio técnico da FeelTech, em uma mentoria para hard e sof skills. O projeto está com erro na autenticação, devido github mudar a forma de retorno na home e será corrigido no dia 12/02/2022</p>
-            <span>
-              <a href="https://desafio-github-explorer.netlify.app" rel="noopener" target="_blank" class="button">
-                <button><span class="iconify" data-inline="false"
-                    data-icon="bx:bx-link"></span></i>&nbsp;Projeto</button>
-              </a>
-            </span>
-            <div class="linguagensProjeto">
-              <span>React</span>
-              <span>Saas</span>
-              <span>Api Rest</span>
-              <span>Bootstrap</span>
-              <span>Supabase</span>
-              <span>Netlify</span>
-            </div>
-          </div>
-
-          
-
-          <div class="cards-interval">
-            <h3>Projeto SDS3</h3>
-            <p>Projeto desenvolvido na semana Spring React da <a href="https://devsuperior.com.br/" target="_blank">Dev
-                Superior</a>,
-              onde fizemos uma aplicação de monitoramento e controle de vendas, com gráficos e lista de todas as vendas,
-              aprendemos a integrar o banco local com o
-              banco na nuvem utilizando o <a href="https://www.heroku.com/">Heroku</a>.</p>
-            <span>
-              <a href="https://diegohfcelestino-dsvendas.netlify.app/dashboard" rel="noopener" target="_blank"
-                class="button">
-                <button><span class="iconify" data-inline="false"
-                    data-icon="bx:bx-link"></span></i>&nbsp;Website</button>
-              </a>
-            </span>
-            <div class="linguagensProjeto">
-              <span>Java</span>
-              <span>PostgreSQL</span>
-              <span>React</span>
-              <span>Typescript</span>
-              <span>Jquery</span>
-              <span>Bootstrap</span>
-            </div>
-          </div>
-
-          <div class="cards-interval">
-            <h3>Let me ask</h3>
-            <p>Este projeto foi desenvolvido durante a Next Level Week Together, apresentada dos dias 20 a 27 de Junho
-              de 2021 evento da <a href="https://rocketseat.com.br/" target="_blank">RocketSeat</a>. Projeto
-              desenvolvido para criadores
-              de conteúdos interagirem com seus expectadores de forma democrática, elencando perguntas e ranqueando as
-              mesmas.</p>
-            <span>
-              <a href="https://letmeask-47b7b.web.app/" rel="noopener" target="_blank" class="button">
-                <button><span class="iconify" data-inline="false"
-                    data-icon="bx:bx-link"></span></i>&nbsp;Website</button>
-              </a>
-            </span>
-            <div class="linguagensProjeto">
-              <span>React JS</span>
-              <span>TypeScript</span>
-              <span>Firebase</span>
-            </div>
-          </div>
-
-          <div class="cards-interval">
-            <h3>Dev Finance</h3>
-            <p>Este projeto foi desenvolvido durante a Maratona Discovery, apresentada pelo Mayk Brito, instrutor da <a
-                href="https://rocketseat.com.br/" target="_blank">RocketSeat</a>. Projeto desenvolvido para
-              administração financeira
-              pessoal, com gráficos, lançamentos parcelados e download da movimentação em txt.</p>
-            <span>
-              <a href="https://diegohfcelestino.github.io/maratona_discover/" rel="noopener" target="_blank"
-                class="button">
-                <button><span class="iconify" data-inline="false"
-                    data-icon="bx:bx-link"></span></i>&nbsp;Website</button>
-              </a>
-            </span>
-            <div class="linguagensProjeto">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
-            </div>
-          </div>
-
-          <div class="cards-interval">
-            <h3>Portfólio</h3>
-            <p>Este projeto foi desenvolvido para mostrar minha história profissional, estudos e todos os projetos
-              desenvolvidos.</p>
-            <span>
-              <a href="https://diegohfcelestino.github.io/portfolio/" rel="noopener" target="_blank" class="button">
-                <button><span class="iconify" data-inline="false"
-                    data-icon="bx:bx-link"></span></i>&nbsp;Website</button>
-              </a>
-            </span>
-            <div class="linguagensProjeto">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>Javascript</span>
-              <span>Bootstrap</span>
-            </div>
-          </div>
-
-
-          <div class="cards-interval">
-            <h3>Vc Vendeu</h3>
-            <p>Pagina desenvolvida para venda de um produto para cliente, o mesmo foi desenvolvido em HTML, CSS e Javascript, com link para integração de pagamentos via mercado pago</p>
-            <span>
-              <a href="https:vcvendeu.com.br" rel="noopener" target="_blank" class="button">
-                <button><span class="iconify" data-inline="false"
-                    data-icon="bx:bx-link"></span></i>&nbsp;Website</button>
-              </a>
-            </span>
-            <div class="linguagensProjeto">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>Javascript</span>
-              <span>Bootstrap</span>
-            </div>
-          </div>
-
-          <div class="cards-interval">
-            <h3>Em breve</h3>
-            <p>Pegue o café e espere um pouco, estamos desenvolvendo novos projetos.</p>
-            <p>Vem muita coisa por aí, aguardem.</p>
-          </div>
-        </article>
-        <a href="https://github.com/diegohfcelestino?tab=repositories" rel="noopener" target="_blank"
-          class="descricao-delay">Repositórios no GitHub</a>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="code-header">
+          <div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div>
+        </div>
+        <div class="code-body">
+          <div><span class="c-purple">const</span> <span class="c-cyan">developer</span> <span class="c-dim">= {</span></div>
+          <div>&nbsp;&nbsp;<span class="c-green">name</span><span class="c-dim">:</span> <span class="c-white">"Diego Ferreira"</span>,</div>
+          <div>&nbsp;&nbsp;<span class="c-green">role</span><span class="c-dim">:</span> <span class="c-white">"Full Stack Dev"</span>,</div>
+          <div>&nbsp;&nbsp;<span class="c-green">stack</span><span class="c-dim">: [</span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-white">"React"</span>, <span class="c-white">"React-Native"</span>, <span class="c-white">"Node"</span>,</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-white">"TypeScript"</span>
+          <div>&nbsp;&nbsp;<span class="c-dim">],</span></div>
+          <div>&nbsp;&nbsp;<span class="c-green">location</span><span class="c-dim">:</span> <span class="c-white">"Franca-SP 🇧🇷"</span>,</div>
+          <div>&nbsp;&nbsp;<span class="c-green">available</span><span class="c-dim">:</span> <span class="c-pink">true</span></div>
+          <div><span class="c-dim">};</span></div>
+        </div>
+        <div class="tech-chips">
+          <span class="chip">React</span>
+          <span class="chip">React Native</span>
+          <span class="chip">TypeScript</span>
+          <span class="chip">Node.js</span>
+          <span class="chip">Java</span>
+          <span class="chip">Next.js</span>
+        </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!--Serviços-->
-    <!-- <section id="servicos">
-      <div class="larguraMaxContainer">
-        <h2 class="titulo-delay">Serviços</h2>
-        <article>
-          <div class="cards-interval draw meet">
-            <span class="iconify" data-inline="false" data-icon="clarity:computer-line"></span>
-            <h3>Desenvolvimento Web</h3>
-            <p>Desenvolvimento de sites profissionais, sistemas web e blogs.</p>
-          </div>
-          <div class="cards-interval">
-            <span class="iconify" data-inline="false" data-icon="akar-icons:mobile-device"></span>
-            <h3>Sites Responsivos</h3>
-            <p>Criação de sites responsivos para a melhor visualização em todas as resoluções.</p>
-          </div>
-          <div class="cards-interval">
-            <span class="iconify" data-inline="false" data-icon="clarity:design-line"></span>
-            <h3>UI Design</h3>
-            <p>Desenho de layouts que se adequam ao seu negócio de forma profissional e fiel no desenvolvimento.</p>
-          </div>
-          <div class="cards-interval">
-            <span class="iconify" data-inline="false" data-icon="bi:code-square"></span>
-            <h3>Código Semântico</h3>
-            <p>Estratégia e monitoração para seu negócio, fazendo com que seu site apareça cada vez melhor nas buscas.
-            </p>
-          </div>
-        </article>
+<!-- ─── SOBRE ─── -->
+<section id="sobre">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <div class="about-glow"></div>
+        <img src="https://github.com/diegohfcelestino.png" alt="Diego Henrique Ferreira" class="about-img" />
       </div>
-    </section> -->
+      <div class="reveal">
+        <p class="section-tag">// sobre_mim</p>
+        <h2 class="section-title">Quem sou <span>eu?</span></h2>
+        <div class="divider"></div>
+        <p style="color:var(--text-muted);margin-bottom:1rem;line-height:1.8">
+          Sou Diego, 35 anos, de Franca-SP. Trabalho como desenvolvedor <strong style="color:var(--text)">Full Stack</strong>, 
+          com experiência em <strong style="color:var(--text)">React, React Native e Node.js</strong>.
+        </p>
+        <p style="color:var(--text-muted);margin-bottom:2rem;line-height:1.8">
+          Desde 2020 venho aprimorando minhas habilidades em bootcamps da Rocketseat e Digital Innovation One. 
+          Gosto de construir aplicações que resolvem problemas reais, tanto web quanto mobile.
+        </p>
+        <div class="about-stats">
+          <div class="stat-card"><span class="stat-number">5+</span><span class="stat-label">Anos estudando</span></div>
+          <div class="stat-card"><span class="stat-number">20+</span><span class="stat-label">Projetos no GitHub</span></div>
+          <div class="stat-card"><span class="stat-number">10+</span><span class="stat-label">Tecnologias</span></div>
+          <div class="stat-card"><span class="stat-number">∞</span><span class="stat-label">Vontade de evoluir</span></div>
+        </div>
+        <div class="about-tags" style="margin-top:2rem">
+          <span class="tag">React JS</span><span class="tag">React Native</span><span class="tag">TypeScript</span>
+          <span class="tag">Node.js</span><span class="tag">Java</span><span class="tag">Next.js</span>
+          <span class="tag">PostgreSQL</span><span class="tag">Supabase</span><span class="tag">Firebase</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!--Conhecimentos-->
-    <section id="conhecimentos">
-      <div class="larguraMaxContainer">
+<!-- ─── PROJETOS ─── -->
+<section id="projetos">
+  <div class="container">
+    <div class="projects-header reveal">
+      <div>
+        <p class="section-tag">// projetos_reais</p>
+        <h2 class="section-title">Meus <span>Projetos</span></h2>
+        <div class="divider"></div>
+        <p class="section-desc">Projetos reais do meu GitHub — sistemas, apps e desafios técnicos que construí.</p>
+      </div>
+      <a href="https://github.com/diegohfcelestino" target="_blank" rel="noopener" class="btn btn-outline">
+        Ver todos no GitHub →
+      </a>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- AprendIN — projeto real destacado -->
+      <div class="project-card featured reveal">
+        <div class="project-top">
+          <div class="project-icon">🎓</div>
+          <span class="featured-badge">⭐ Destaque</span>
+        </div>
         <div>
-          <article id="texto-conhecimentos">
-            <h2 class="titulo-delay">Conhecimentos</h2>
-            <p class="descricao-delay mudarTextoDescricao">
-              Um breve resumo dos meus conhecimentos. Juntos podemos chegar longe 💜 <br>
-              #Never Stop Learning!
-              <br>
-              <br>
-              ** Passe o mouse no card para ler sobre **
-            </p>
-          </article>
-
-          <article id="cards-conhecimentos">
-            <div class="cards-interval html sairCaixa">
-              <span class="cards-nomes">HTML</span>
-              <span class="iconify" data-inline="false" data-icon="vscode-icons:file-type-html"></span>
-            </div>
-            <div class="cards-interval css sairCaixa">
-              <span class="cards-nomes">CSS</span>
-              <span class="iconify" data-inline="false" data-icon="vscode-icons:file-type-css"></span>
-            </div>
-            <div class="cards-interval js sairCaixa">
-              <span class="cards-nomes">Javascript</span>
-              <span class="iconify" data-inline="false" data-icon="logos:javascript"></span>
-            </div>
-            <div class="cards-interval bootstrap sairCaixa">
-              <span class="cards-nomes">Bootstrap</span>
-              <span class="iconify" data-inline="false" data-icon="logos:bootstrap"></span>
-            </div>
-            <div class="cards-interval sass sairCaixa">
-              <span class="cards-nomes">Sass</span>
-              <span class="iconify" data-inline="false" data-icon="vscode-icons:file-type-sass"></span>
-            </div>
-            <div class="cards-interval react sairCaixa">
-              <span class="cards-nomes-baixo">ReactJS</span>
-              <span class="iconify" data-inline="false" data-icon="vscode-icons:file-type-reactjs"></span>
-            </div>
-            <div class="cards-interval react-native sairCaixa">
-              <span class="cards-nomes-baixo">React-Native</span>
-              <span class="iconify" data-inline="false" data-icon="vscode-icons:file-type-reactts"></span>
-            </div>
-            <div class="cards-interval ts sairCaixa">
-              <span class="cards-nomes-baixo">TypeScript</span>
-              <span class="iconify" data-inline="false" data-icon="logos:typescript-icon"></span>
-            </div>
-            <div class="cards-interval next sairCaixa">
-              <span class="cards-nomes-baixo">Next.js</span>
-              <span class="iconify" data-inline="false" data-icon="vscode-icons:file-type-next"></span>
-            </div>
-            <div class="cards-interval styled sairCaixa">
-              <span class="cards-nomes-baixo">Styled Components</span>
-              <span class="iconify" data-inline="false" data-icon="vscode-icons:file-type-styled"></span>
-            </div>
-            <div class="cards-interval postgre sairCaixa">
-              <span class="cards-nomes-baixo aumento-hover">PostgreSQL</span>
-              <span class="iconify" data-inline="false" data-icon="logos:postgresql"></span>
-            </div>
-
-            <div class="cards-interval java sairCaixa">
-              <span class="cards-nomes-baixo aumento-hover">Java</span>
-              <span class="iconify" data-inline="false" data-icon="logos:java"></span>
-            </div>
-
-            <div class="cards-interval spring sairCaixa">
-              <span class="cards-nomes-baixo aumento-hover">Springboot</span>
-              <span class="iconify" data-inline="false" data-icon="logos:spring-icon"></span>
-            </div>
-
-            <div class="cards-interval node sairCaixa">
-              <span class="cards-nomes-baixo aumento-hover">Node</span>
-              <span class="iconify" data-inline="false" data-icon="logos:nodejs-icon"></span>
-            </div>
-            <div class="cards-interval ejs sairCaixa">
-              <span class="cards-nomes-baixo aumento-hover">EJS</span>
-              <span class="iconify" data-inline="false" data-icon="vscode-icons:file-type-ejs"></span>
-            </div>
-          </article>
-
+          <div class="project-name">AprendIN</div>
+          <p class="project-desc">Socialtech criada em parceria com profissionais de MKT para incluir jovens aprendizes no mercado de trabalho. Portal com plataforma de cursos usando Moodle Cloud.</p>
+        </div>
+        <div class="project-tech">
+          <span class="tech-badge">HTML</span>
+          <span class="tech-badge">CSS</span>
+          <span class="tech-badge cyan">JavaScript</span>
+          <span class="tech-badge">Bootstrap</span>
+          <span class="tech-badge green">Moodle</span>
+        </div>
+        <div class="project-links">
+          <a href="http://AprendIN.com/" target="_blank" class="btn btn-outline" style="font-size:.8rem;padding:.4rem .9rem">🌐 Website</a>
         </div>
       </div>
-    </section>
 
-    <!---
-    <form id="contato" method="post" enctype="text/plain">
-      <article id="agradecimento">
+      <!-- Org Soluções — projeto real destacado -->
+      <div class="project-card featured reveal">
+        <div class="project-top">
+          <div class="project-icon">🏢</div>
+          <span class="featured-badge">⭐ Destaque</span>
+        </div>
         <div>
-          <h2>Obrigado pela visita!</h2>
-          <h4>Não hesite em mandar-me uma mensagem.</h4>
+          <div class="project-name">Org Soluções</div>
+          <p class="project-desc">Sistema para controle e reserva de salas e veículos corporativos. Integração com API REST, gráficos com ApexChart, banco de dados Supabase e deploy na Netlify.</p>
         </div>
-      </article>
-      <fieldset id="camposContato">
-        <div id="campoFlex">
-          <div class="campoPadrao">
-            <label>E-mail</label>
-            <input name="email" type="email" class="campos" placeholder="Digite e-mail aqui..." required>
+        <div class="project-tech">
+          <span class="tech-badge cyan">React JS</span>
+          <span class="tech-badge">SASS</span>
+          <span class="tech-badge green">Supabase</span>
+          <span class="tech-badge">API REST</span>
+          <span class="tech-badge pink">Bootstrap</span>
+        </div>
+        <div class="project-links">
+          <a href="https://orgsolucoes.netlify.app/" target="_blank" class="btn btn-outline" style="font-size:.8rem;padding:.4rem .9rem">🌐 Sistema</a>
+        </div>
+      </div>
+
+      <!-- Task Manager -->
+      <div class="project-card reveal">
+        <div class="project-top">
+          <div class="project-icon">✅</div>
+          <div class="project-links">
+            <a href="https://github.com/diegohfcelestino/task-manager" target="_blank" class="project-link">⬡</a>
           </div>
+        </div>
+        <div>
+          <div class="project-name">Task Manager</div>
+          <p class="project-desc">Gerenciador de tarefas moderno desenvolvido com TypeScript. Organização e produtividade com uma interface limpa e funcional.</p>
+        </div>
+        <div class="project-tech">
+          <span class="tech-badge cyan">TypeScript</span>
+          <span class="tech-badge">React</span>
+        </div>
+      </div>
 
-          <div class="campoPadrao" id="espacoResponsivo">
-            <label>Nome</label>
-            <input name="nome" type="text" class="campos" placeholder="Digite seu nome aqui..." required>
+      <!-- Chefs Menu -->
+      <div class="project-card reveal">
+        <div class="project-top">
+          <div class="project-icon">🍽️</div>
+          <div class="project-links">
+            <a href="https://github.com/diegohfcelestino/chefs-menu" target="_blank" class="project-link">⬡</a>
+            <a href="https://desafio-tecnico-fullstack-grao-direto.vercel.app" target="_blank" class="project-link">🔗</a>
           </div>
         </div>
-
-        <div id="campoDois">
-          <label>Mensagem</label>
-          <textarea name="mensagem" id="campoMensagem" cols="30" rows="10"
-            placeholder="Digite o motivo do contato aqui..." required></textarea>
+        <div>
+          <div class="project-name">Chef's Menu</div>
+          <p class="project-desc">App completo para pedidos de comida com acompanhamento em tempo real e pagamento integrado. Desafio técnico fullstack.</p>
         </div>
-
-        <input type="submit" value="Enviar" id="botao">
-
-        <div id="captcha">
-          Goo<input type="text" id="campo" maxlength="1" required>le
+        <div class="project-tech">
+          <span class="tech-badge cyan">JavaScript</span>
+          <span class="tech-badge green">Node.js</span>
+          <span class="tech-badge">React</span>
         </div>
-      </fieldset>
-    </form>-->
+      </div>
 
-    <!--Scroll top-->
-    <div id="stop" class="scrollTop">
-      <span>
-        <span class="iconify" data-inline="false" data-icon="dashicons:arrow-up-alt2"></span>
-      </span>
+      <!-- Org Reserva -->
+      <div class="project-card reveal">
+        <div class="project-top">
+          <div class="project-icon">🏨</div>
+          <div class="project-links">
+            <a href="https://github.com/diegohfcelestino/org-reserva" target="_blank" class="project-link">⬡</a>
+          </div>
+        </div>
+        <div>
+          <div class="project-name">Org Reserva</div>
+          <p class="project-desc">Sistema de reservas de salas e veículos. Controle de pontos, biblioteca de vídeos de cursos corporativos e gestão completa.</p>
+        </div>
+        <div class="project-tech">
+          <span class="tech-badge cyan">JavaScript</span>
+          <span class="tech-badge">React</span>
+          <span class="tech-badge green">Node.js</span>
+        </div>
+      </div>
+
+      <!-- Devagram -->
+      <div class="project-card reveal">
+        <div class="project-top">
+          <div class="project-icon">📸</div>
+          <div class="project-links">
+            <a href="https://github.com/diegohfcelestino/devagram" target="_blank" class="project-link">⬡</a>
+            <a href="https://devagram-node-nextjs-weld.vercel.app" target="_blank" class="project-link">🔗</a>
+          </div>
+        </div>
+        <div>
+          <div class="project-name">Devagram</div>
+          <p class="project-desc">Clone do Instagram fullstack: Backend (Node.js), Frontend (Next.js) e Mobile (React Native). Treinamento Devaria para se tornar fullstack.</p>
+        </div>
+        <div class="project-tech">
+          <span class="tech-badge cyan">TypeScript</span>
+          <span class="tech-badge">Next.js</span>
+          <span class="tech-badge green">Node.js</span>
+          <span class="tech-badge pink">React Native</span>
+        </div>
+      </div>
+
+      <!-- Reserva ETEC -->
+      <div class="project-card reveal">
+        <div class="project-top">
+          <div class="project-icon">🏫</div>
+          <div class="project-links">
+            <a href="https://github.com/diegohfcelestino/reserva-etec" target="_blank" class="project-link">⬡</a>
+            <a href="https://reserva-etec.netlify.app/" target="_blank" class="project-link">🔗</a>
+          </div>
+        </div>
+        <div>
+          <div class="project-name">Reserva ETEC</div>
+          <p class="project-desc">Software para reserva de salas desenvolvido como TCC da ETEC. Sistema completo de controle e agendamento de espaços.</p>
+        </div>
+        <div class="project-tech">
+          <span class="tech-badge cyan">JavaScript</span>
+          <span class="tech-badge">React</span>
+          <span class="tech-badge green">Netlify</span>
+        </div>
+      </div>
+
+      <!-- Event Platform -->
+      <div class="project-card reveal">
+        <div class="project-top">
+          <div class="project-icon">🎤</div>
+          <div class="project-links">
+            <a href="https://github.com/diegohfcelestino/event-platform" target="_blank" class="project-link">⬡</a>
+            <a href="https://event-platform-dusky.vercel.app" target="_blank" class="project-link">🔗</a>
+          </div>
+        </div>
+        <div>
+          <div class="project-name">Event Platform</div>
+          <p class="project-desc">Plataforma de eventos e aulas online desenvolvida no Ignite Lab da Rocketseat. UI com GraphQL e Vimeo integrado.</p>
+        </div>
+        <div class="project-tech">
+          <span class="tech-badge cyan">TypeScript</span>
+          <span class="tech-badge">React</span>
+          <span class="tech-badge green">GraphQL</span>
+        </div>
+      </div>
+
+      <!-- Kanbang -->
+      <div class="project-card reveal">
+        <div class="project-top">
+          <div class="project-icon">🗂️</div>
+          <div class="project-links">
+            <a href="https://github.com/diegohfcelestino/kanbang-nodejs" target="_blank" class="project-link">⬡</a>
+          </div>
+        </div>
+        <div>
+          <div class="project-name">Kanbang</div>
+          <p class="project-desc">Ferramenta de gerenciamento de projetos estilo Kanban com backend Node.js. Fullstack app para organização de tarefas em equipe.</p>
+        </div>
+        <div class="project-tech">
+          <span class="tech-badge cyan">JavaScript</span>
+          <span class="tech-badge green">Node.js</span>
+          <span class="tech-badge">React</span>
+        </div>
+      </div>
+
+    </div><!-- /projects-grid -->
+  </div>
+</section>
+
+<!-- ─── SKILLS ─── -->
+<section id="conhecimentos">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:3rem">
+      <p class="section-tag">// conhecimentos</p>
+      <h2 class="section-title">Stack & <span>Tecnologias</span></h2>
+      <div class="divider" style="margin:1rem auto"></div>
     </div>
-  </main>
-
-  <!--Footer-->
-  <footer class="footer">
-    <h2>Obrigado pela visita</h2>
-    <p>Se você deseja bater um papo comigo, não hesite em me enviar uma mensagem.</p>
-
-    <span>💌 diegohfcelestino@gmail.com</span>
-
-
-    <div>
-      <a href="https://www.linkedin.com/in/diegohfcelestino/" target="_blank">
-        💼 Linkedin
-      </a>
-      <a href="https://www.instagram.com/diegohfcelestino/" target="_blank">
-        🌈 Instagram
-      </a>
-      <a href="https://github.com/diegohfcelestino" target="_blank">
-        🐱 GitHub
-      </a>
+    <div class="skills-wrapper">
+      <div class="reveal">
+        <h3>// frontend</h3>
+        <div class="skills-list">
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">React JS / Next.js</span><span class="skill-pct">90%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="--w:.9" data-w=".9"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">TypeScript</span><span class="skill-pct">85%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="--w:.85" data-w=".85"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">React Native</span><span class="skill-pct">80%</span></div>
+            <div class="skill-bar"><div class="skill-fill cyan" data-w=".8"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">HTML / CSS / SASS</span><span class="skill-pct">95%</span></div>
+            <div class="skill-bar"><div class="skill-fill green" data-w=".95"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <h3>// backend & outros</h3>
+        <div class="skills-list">
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">Node.js</span><span class="skill-pct">75%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-w=".75"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">Java / Spring Boot</span><span class="skill-pct">65%</span></div>
+            <div class="skill-bar"><div class="skill-fill cyan" data-w=".65"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">PostgreSQL / Supabase</span><span class="skill-pct">70%</span></div>
+            <div class="skill-bar"><div class="skill-fill green" data-w=".7"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">Firebase / Cloud</span><span class="skill-pct">70%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-w=".7"></div></div>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="icon-grid reveal" style="margin-top:3rem">
+      <div class="icon-card"><span class="icon">⚛️</span><span class="name">React</span></div>
+      <div class="icon-card"><span class="icon">📱</span><span class="name">React Native</span></div>
+      <div class="icon-card"><span class="icon">🔷</span><span class="name">TypeScript</span></div>
+      <div class="icon-card"><span class="icon">🟩</span><span class="name">Node.js</span></div>
+      <div class="icon-card"><span class="icon">☕</span><span class="name">Java</span></div>
+      <div class="icon-card"><span class="icon">▲</span><span class="name">Next.js</span></div>
+      <div class="icon-card"><span class="icon">🔥</span><span class="name">Firebase</span></div>
+      <div class="icon-card"><span class="icon">🐘</span><span class="name">PostgreSQL</span></div>
+      <div class="icon-card"><span class="icon">🎨</span><span class="name">SASS</span></div>
+      <div class="icon-card"><span class="icon">💚</span><span class="name">Supabase</span></div>
+      <div class="icon-card"><span class="icon">🌿</span><span class="name">Spring Boot</span></div>
+      <div class="icon-card"><span class="icon">🐙</span><span class="name">Git / GitHub</span></div>
+    </div>
+  </div>
+</section>
 
-    <p>Orgulhosamente desenvolvido por Diego Ferreira</p>
+<!-- ─── CONTACT ─── -->
+<section id="contato">
+  <div class="container">
+    <div class="contact-inner reveal">
+      <p class="section-tag">// contato</p>
+      <h2 class="contact-title">Vamos <span style="background:linear-gradient(135deg,var(--primary-light),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">trabalhar juntos?</span></h2>
+      <div class="divider" style="margin:.75rem auto 1.5rem"></div>
+      <p style="color:var(--text-muted);max-width:520px">
+        Estou disponível para freelances, projetos e oportunidades full-time.<br>
+        Não hesite em me mandar uma mensagem!
+      </p>
+      <div class="contact-links">
+        <a href="mailto:diegohfcelestino@gmail.com" class="btn btn-primary">
+          ✉️ diegohfcelestino@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/diegohfcelestino/" target="_blank" rel="noopener" class="btn btn-outline">
+          💼 LinkedIn
+        </a>
+        <a href="https://github.com/diegohfcelestino" target="_blank" rel="noopener" class="btn btn-outline">
+          🐙 GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
-  </footer>
+<!-- ─── FOOTER ─── -->
+<footer>
+  <p>Desenvolvido com ❤️ por <span>Diego Henrique Ferreira</span> &mdash; 2024</p>
+</footer>
 
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <!--Script dos ícones  class="titulo-delay"-->
-  <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
-  <!--JQuery para o scroll-->
-  <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
-  <!--Scritps-->
-  <script src="assets/js/script.js"></script>
-  <!--Script do efeito de inclinação-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+<script>
+  // ─── PARTICLES ───
+  (function(){
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [];
+    function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+    resize();
+    window.addEventListener('resize', resize);
+    for(let i=0;i<60;i++){
+      particles.push({
+        x: Math.random()*W, y: Math.random()*H,
+        vx: (Math.random()-.5)*.3, vy: (Math.random()-.5)*.3,
+        r: Math.random()*1.5+.5,
+        c: Math.random() > .5 ? '#6366f1' : '#06b6d4'
+      });
+    }
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      particles.forEach(p=>{
+        p.x+=p.vx; p.y+=p.vy;
+        if(p.x<0||p.x>W)p.vx*=-1;
+        if(p.y<0||p.y>H)p.vy*=-1;
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle=p.c; ctx.fill();
+      });
+      // lines
+      for(let i=0;i<particles.length;i++){
+        for(let j=i+1;j<particles.length;j++){
+          const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y;
+          const d=Math.sqrt(dx*dx+dy*dy);
+          if(d<120){
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x,particles[i].y);
+            ctx.lineTo(particles[j].x,particles[j].y);
+            ctx.strokeStyle=`rgba(99,102,241,${.15*(1-d/120)})`;
+            ctx.lineWidth=.5; ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+
+  // ─── TYPED ROLE ───
+  (function(){
+    const roles = ["Full Stack Developer","React Native Dev","Frontend Engineer","Mobile App Builder"];
+    let ri=0, ci=0, del=false, el=document.getElementById('typed-role');
+    function tick(){
+      const w=roles[ri];
+      el.textContent = del ? w.slice(0,--ci) : w.slice(0,++ci);
+      if(!del && ci===w.length){ del=true; setTimeout(tick,1400); return; }
+      if(del && ci===0){ del=false; ri=(ri+1)%roles.length; }
+      setTimeout(tick, del?50:90);
+    }
+    tick();
+  })();
+
+  // ─── SCROLL REVEAL ───
+  const revealObs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+
+  // ─── SKILL BARS ───
+  const barObs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.querySelectorAll('.skill-fill').forEach(b=>{
+          b.style.transform = `scaleX(${b.dataset.w})`;
+        });
+      }
+    });
+  },{threshold:.3});
+  document.querySelectorAll('.skills-wrapper').forEach(el=>barObs.observe(el));
+
+  // ─── HAMBURGER ───
+  function toggleMenu(){
+    document.getElementById('nav-links').classList.toggle('open');
+  }
+
+  // ─── HEADER SCROLL ───
+  window.addEventListener('scroll',()=>{
+    const h=document.getElementById('header');
+    h.style.background = window.scrollY>50 ? 'rgba(10,10,15,0.95)' : 'rgba(10,10,15,0.8)';
+  });
+</script>
 </body>
-
 </html>
